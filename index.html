@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Grid | YouTube</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Ícones do Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Grid Principal -->
+  <div class="app-layout">
+    
+    <!-- 1 header -->
+    <header class="header">
+      <div class="header-left">
+        <button class="icon-btn"><span class="material-icons">menu</span></button>
+        <div class="logo">
+          <span class="logo-icon">▶</span>
+          <span class="logo-text">YouTube<sup>BR</sup></span>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <div class="search-box">
+          <input type="text" placeholder="Pesquisar">
+          <button class="keyboard-btn"><span class="material-icons">keyboard</span></button>
+          <button class="search-btn"><span class="material-icons">search</span></button>
+        </div>
+        <button class="icon-btn mic-btn"><span class="material-icons">mic</span></button>
+      </div>
+
+      <div class="header-right">
+        <button class="icon-btn"><span class="material-icons">more_vert</span></button>
+        <button class="btn-login">
+          <span class="material-icons">account_circle</span>
+          Fazer login
+        </button>
+      </div>
+    </header>
+
+    <!-- 2 Menu Lateral esquerdo -->
+    <aside class="sidebar">
+      <nav class="nav-section">
+        <a href="#" class="nav-item active"><span class="material-icons">home</span>Início</a>
+        <a href="#" class="nav-item"><span class="material-icons">bolt</span>Shorts</a>
+        <a href="#" class="nav-item"><span class="material-icons">subscriptions</span>Inscrições</a>
+      </nav>
+      <hr>
+      <nav class="nav-section">
+        <a href="#" class="nav-item"><span class="material-icons">video_library</span>Você</a>
+        <a href="#" class="nav-item"><span class="material-icons">history</span>Histórico</a>
+      </nav>
+      <hr>
+      <div class="login-prompt">
+        <p>Faça login para curtir vídeos, comentar e se inscrever.</p>
+        <button class="btn-login">
+          <span class="material-icons">account_circle</span>
+          Fazer login
+        </button>
+      </div>
+      <hr>
+      <nav class="nav-section">
+        <h3>Explorar</h3>
+        <a href="#" class="nav-item"><span class="material-icons">music_note</span>Música</a>
+        <a href="#" class="nav-item"><span class="material-icons">movie</span>Filmes</a>
+        <a href="#" class="nav-item"><span class="material-icons">sensors</span>Ao vivo</a>
+      </nav>
+    </aside>
+
+    <!-- 3 Conteúdo Principal -->
+    <main class="main-content">
+	<!-- barra abaixo da pesquisa botões com sugestões de vídeos (chips) -->
+      <div class="chips-bar">
+        <button class="chip active">Tudo</button>
+        <button class="chip">Resolução 4K</button>
+        <button class="chip">Música</button>
+        <button class="chip">Parques</button>
+        <button class="chip">Notícias</button>
+        <button class="chip">Regiões abissais</button>
+        <button class="chip">Ao vivo</button>
+        <button class="chip">Torres</button>
+        <button class="chip">Smooth Jazz</button>
+        <button class="chip">Música eletrônica</button>
+      </div>
+
+      <!-- grid de vídeos - aprendizado de aulas: grid implícito, align e justify) -->
+      <section class="video-grid">
+        
+        <!-- Card 1 -->
+        <article class="video-card">
+          <div class="thumbnail-container">
+            <div class="thumb-placeholder kyoto">KYOTO AUTUMN</div>
+            <span class="badge-hd">ULTRA HD 8K</span>
+            <span class="duration">23:41:18</span>
+          </div>
+          <div class="video-info">
+            <div class="avatar red">CP</div>
+            <div class="details">
+              <h4>Kyoto in Autumn 🍁 8K UHD | Japan's Enchanted City...</h4>
+              <p class="channel">Chill Planet <span class="material-icons check">check_circle</span></p>
+              <p class="stats">19 mil visualizações • há 9 dias</p>
+            </div>
+            <button class="more-btn"><span class="material-icons">more_vert</span></button>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="video-card">
+          <div class="thumbnail-container">
+            <div class="thumb-placeholder forest">FOREST NATURE 4K</div>
+            <span class="badge-hd">4K ULTRA HD</span>
+            <span class="duration">11:59:56</span>
+          </div>
+          <div class="video-info">
+            <div class="avatar green">RF</div>
+            <div class="details">
+              <h4>Forest Nature 4K • Relaxation Film with Peaceful...</h4>
+              <p class="channel">Relaxation Film <span class="material-icons check">check_circle</span></p>
+              <p class="stats">492 mil visualizações • há 1 ano</p>
+            </div>
+            <button class="more-btn"><span class="material-icons">more_vert</span></button>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="video-card">
+          <div class="thumbnail-container">
+            <div class="thumb-placeholder atlantic">ATLANTIC OCEAN</div>
+            <span class="duration">11:59:00</span>
+          </div>
+          <div class="video-info">
+            <div class="avatar blue">TU</div>
+            <div class="details">
+              <h4>Untold Atlantic | Secrets Beneath the Waves...</h4>
+              <p class="channel">Top Unreal Travel <span class="material-icons check">check_circle</span></p>
+              <p class="stats">1,3 mi de visualizações • Transmitido há 2 anos</p>
+            </div>
+            <button class="more-btn"><span class="material-icons">more_vert</span></button>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="video-card">
+          <div class="thumbnail-container">
+            <div class="thumb-placeholder alaska">WONDER OF ALASKA</div>
+            <span class="badge-hd">8K</span>
+            <span class="duration">11:54:56</span>
+          </div>
+          <div class="video-info">
+            <div class="avatar blue-dark">WA</div>
+            <div class="details">
+              <h4>Wonder of Alaska 8K UHD • Nature Relaxation...</h4>
+              <p class="channel">Wild Wilderness <span class="material-icons check">check_circle</span></p>
+              <p class="stats">850 mil visualizações • há 5 meses</p>
+            </div>
+            <button class="more-btn"><span class="material-icons">more_vert</span></button>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="video-card">
+          <div class="thumbnail-container">
+            <div class="thumb-placeholder egypt">A CAPITAL PERDIDA</div>
+            <span class="duration">2:05:23</span>
+          </div>
+          <div class="video-info">
+            <div class="avatar gold">HI</div>
+            <div class="details">
+              <h4>A Capital Perdida do Egito Antigo • Documentário...</h4>
+              <p class="channel">História Ilustrada <span class="material-icons check">check_circle</span></p>
+              <p class="stats">310 mil visualizações • há 8 meses</p>
+            </div>
+            <button class="more-btn"><span class="material-icons">more_vert</span></button>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="video-card">
+          <div class="thumbnail-container">
+            <div class="thumb-placeholder nara">NARA AUTUMN</div>
+            <span class="duration">11:50:12</span>
+          </div>
+          <div class="video-info">
+            <div class="avatar orange">JP</div>
+            <div class="details">
+              <h4>Nara Japan Autumn Colors • Scenic Train Journey 4K</h4>
+              <p class="channel">Japan Panorama <span class="material-icons check">check_circle</span></p>
+              <p class="stats">125 mil visualizações • há 2 semanas</p>
+            </div>
+            <button class="more-btn"><span class="material-icons">more_vert</span></button>
+          </div>
+        </article>
+
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

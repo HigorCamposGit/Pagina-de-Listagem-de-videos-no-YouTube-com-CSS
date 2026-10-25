@@ -1,0 +1,409 @@
+/* reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #f1f1f1;
+  overflow-x: hidden;
+}
+
+/* layout principal */
+.app-layout {
+  display: grid;
+  
+  /* usando shorthand grid-template - Criação de linhas e colunas juntas, linha 1: Header 56px, linha 2: Conteúdo restante 1fr, coluna 1 sidebar:240px, coluna 2 main content 1fr */
+  grid-template: 
+    "header header" 56px
+    "sidebar main"  calc(100vh - 56px) / 240px 1fr;
+}
+
+/* header e elementos com CSS grid */
+.header {
+  grid-area: header;
+  background-color: #0f0f0f;
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  
+
+  /* justify-items e align-items */
+  align-items: center; 
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+}
+
+.logo-icon {
+  color: #ff0000;
+  font-size: 22px;
+  margin-right: 4px;
+}
+
+.logo sup {
+  font-size: 10px;
+  color: #aaa;
+  margin-left: 2px;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #121212;
+  border: 1px solid #303030;
+  border-radius: 40px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-box input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+}
+
+.keyboard-btn {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  padding-right: 8px;
+}
+
+.search-btn {
+  background-color: #222222;
+  border: none;
+  border-left: 1px solid #303030;
+  color: #fff;
+  padding: 6px 20px;
+  cursor: pointer;
+}
+
+.mic-btn {
+  background-color: #222;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  
+  /* align-self */
+  align-self: center;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-login {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid #263850;
+  color: #3ea6ff;
+  padding: 6px 12px;
+  border-radius: 18px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* sidebar */
+.sidebar {
+  grid-area: sidebar;
+  background-color: #0f0f0f;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+.nav-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-section h3 {
+  font-size: 14px;
+  color: #aaa;
+  padding: 8px 12px;
+  text-transform: uppercase;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 12px;
+  color: #f1f1f1;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.nav-item:hover, .nav-item.active {
+  background-color: #272727;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #272727;
+  margin: 12px 0;
+}
+
+.login-prompt {
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.login-prompt p {
+  margin-bottom: 12px;
+}
+
+/* main content grid de vídeos */
+.main-content {
+  grid-area: main;
+  padding: 12px 24px;
+  overflow-y: auto;
+}
+
+/* chips */
+.chips-bar {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.chip {
+  background-color: #272727;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.chip.active {
+  background-color: #fff;
+  color: #0f0f0f;
+}
+
+/* grid explicito e implicito */
+.video-grid {
+  display: grid;
+
+  /* grid explicito 3 colunas de tamanhos iguais 1fr */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 16px;
+
+  /* grid implicito */
+  grid-auto-rows: minmax(280px, auto);
+
+  /* justify-items, align-items */
+  justify-items: stretch; /* Cards ajustaveis */
+  align-items: start;     /* Cards alinham no topo no seu espaço */
+}
+
+
+.video-card {
+  display: grid;
+  
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.thumbnail-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #222;
+}
+
+/* simular as thumbnails da imagem */
+.thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  
+  /* place-items - shorthand de align-items e justify-items*/
+     /* Centralizar o texto dentro da imagem */
+  display: grid;
+  place-items: center;
+  
+  font-weight: 900;
+  font-size: 20px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  color: #fff;
+}
+
+/* Temas das Thumbnails */
+.kyoto { background: linear-gradient(135deg, #d32f2f, #f57c00, #ffb300); }
+.forest { background: linear-gradient(135deg, #1b5e20, #43a047, #aed581); }
+.atlantic { background: linear-gradient(135deg, #0d47a1, #1976d2, #00acc1); }
+.alaska { background: linear-gradient(135deg, #0288d1, #80deea, #e0f7fa); color: #000; }
+.egypt { background: linear-gradient(135deg, #f57f17, #ffb300, #fff59d); color: #000; }
+.nara { background: linear-gradient(135deg, #bf360c, #e64a19, #ff8a65); }
+
+/* Badges sobrepostas na imagem usando CSS grid positioning ,justify, align self */
+.badge-hd {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #fff;
+  padding: 2px 6px;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.duration {
+  position: absolute;
+  
+  /* posiciona o tempo no canto inferior direito */
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 3px 6px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* informações do vídeo */
+.video-info {
+  display: grid;
+  
+  /*  */
+  grid-template-columns: 36px 1fr 24px;
+  gap: 12px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  
+  /*  place-items  que entraliza o texto das iniciais no avatar */
+  place-items: center;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.avatar.red { background-color: #d32f2f; }
+.avatar.green { background-color: #388e3c; }
+.avatar.blue { background-color: #1976d2; }
+.avatar.blue-dark { background-color: #0d47a1; }
+.avatar.gold { background-color: #fbc02d; color: #000; }
+.avatar.orange { background-color: #e64a19; }
+
+.details h4 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 4px;
+  
+  /* limita em 2 linhas o texto */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.details .channel {
+  font-size: 12px;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.details .check {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.details .stats {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.more-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  
+  /* align-self alinha o botão de três pontos no topo */
+  align-self: start;
+}
+
+/* responsividade */
+@media (max-width: 1024px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .app-layout {
+    grid-template: 
+      "header" 56px
+      "main"   calc(100vh - 56px) / 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
